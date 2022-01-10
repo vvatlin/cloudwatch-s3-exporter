@@ -21,7 +21,7 @@ var (
 	s3BucketName           = os.Getenv("S3_BUCKET_NAME")
 )
 
-func HandleRequest() {
+func CloudwatchS3Export() {
 	// Load the Shared AWS Configuration (~/.aws/config)
 	cfg, err := config.LoadDefaultConfig(context.TODO())
 	if err != nil {
@@ -110,5 +110,5 @@ func HandleRequest() {
 }
 
 func main() {
-	lambda.Start(HandleRequest)
+	lambda.Start(CloudwatchS3Export)
 }
